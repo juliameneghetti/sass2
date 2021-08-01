@@ -1,0 +1,331 @@
+
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
+
+*{
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Spartan', sans-serif;
+
+    button{
+        background-color: transparent;
+        border: transparent;
+    }
+
+    body{
+        background-color: black;
+    }
+}
+
+// VARIABLES
+
+$colorFuente: rgb(226, 115, 160);
+$colorSecundario: white;
+$opacidad: rgba(234, 155, 187, .40);
+
+@mixin tamaño ($width, $height){
+    width: $width;
+    height: $height;
+}
+
+
+// PERSONALIZACIÓN DE BOOTSTRAP
+
+// MENÚ DE NAVEGACIÓN
+
+.bg-dark {
+    background-color: transparent!important;
+}
+
+.navbar-collapse {
+    justify-content:flex-end;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(114, 110, 110);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: $colorFuente;
+}
+
+.nav-link{
+    margin: 20px;
+}
+
+.navbar-collapse img{
+    height: 30px;
+
+    margin: 30px;
+}
+
+.header__logo--tamaño{
+    @include tamaño (auto, 100px);
+
+    padding-left: 20px;
+}
+
+/*BODY*/
+
+/* SECCIÓN HOME */
+
+/*VIDEO HOME*/
+
+.home--video{
+    width: 100%;
+    margin-top: 50px;
+}
+
+/*BOTÓN TIENDA*/
+
+.home__boton--enlace{
+    display: block;
+
+    background-image: url("./MULTIMEDIA/IMG/HOME/mancha.png");
+
+    @include tamaño (450px, 200px);
+
+    margin: 100px auto 0 auto;
+
+    a{
+        text-decoration: none;
+
+        font-size: 20px;
+        color: black;
+    }
+
+    &:hover{
+        animation: headShake;
+        animation-duration: 1s;
+    }
+}
+
+/*SECCIÓN SOBRE MI*/
+
+.flex__sobreMi{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+
+    background-image: url("./MULTIMEDIA/IMG/SOBRE_MI/mancha.png");
+    background-repeat: no-repeat;
+    background-position: right;       
+
+    img{
+        @include tamaño (600px, 900px);
+
+        padding-top: 80px;
+    }
+
+    p{
+        text-align: right;
+        letter-spacing: 2px;
+        word-spacing: 5px;
+        line-height: 25px;
+
+        color: $colorSecundario;
+
+        @include tamaño (400px, 700px);
+
+        padding: 250px 70px;
+    }
+}
+
+/*SECCIÓN NEW IN*/
+
+.carousel__img--tamaño{
+    margin: 50px auto 0 auto;
+}
+
+/*SECCIÓN TIENDA*/
+
+.seccion__tienda--background{
+    background-image: url("./MULTIMEDIA/IMG/TIENDA/mancha.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.seccion__tienda--flex{
+    display: flex;
+    flex-flow: wrap;
+    justify-content:space-around;
+    text-align: center;
+
+    padding: 50px 0 100px;
+
+    img{
+        @include tamaño (350px, 450px);
+
+        border: 20px solid $opacidad;
+        
+        transition: all 2s;
+
+        &:hover{
+            @include tamaño (400px, 500px);
+        }
+    }
+
+    div{
+        margin-top: 5px;
+        background-color: $opacidad;
+    }
+
+    p{
+        font-size: 14px;
+        color: $colorSecundario;
+
+        padding-top: 5px;
+    }
+
+    button:hover{
+        width: 100%;
+    
+        background-color: rgba(234, 155, 187, .60);
+    }
+}
+
+/*SECCIÓN GALERÍA*/
+
+h1{
+    font-size: medium;
+
+    color: $colorSecundario;
+
+    padding: 50px 40px;
+}
+
+.seccion__galeria--container{
+    display: grid;
+    grid-template-areas:
+    "uno dos tres"
+    "cuatro cuatro cinco"
+    "cuatro cuatro seis";
+
+    margin: 0 40px;
+
+    div{
+        display: grid;
+        justify-content: center;
+
+        border: 2px solid $colorFuente;
+
+        padding: 10px;
+    }
+
+    img{
+        border: 10px solid $colorSecundario;
+
+        @include tamaño (400px, 500px);
+    }
+
+    video{
+        border: 10px solid $colorSecundario;
+
+        @include tamaño (auto, auto);
+    }
+
+    .valor1{
+        grid-area: uno;
+    }
+
+    .valor2{
+        grid-area: dos;
+    }
+
+    .valor3{
+        grid-area: tres;
+    }
+
+    .valor4{
+        grid-area: cuatro;
+    }
+
+    .valor5{
+        grid-area: cinco;
+    }
+
+    .valor6{
+        grid-area: seis;
+    }
+}
+
+/*SECCIÓN CONTACTO*/
+
+form fieldset{
+    padding: 40px;
+
+    div{
+        margin: 30px 0;
+
+        label{
+            @include tamaño (200px, 30px);
+            
+            color: $colorFuente;
+        }
+
+        input{
+            @include tamaño (400px, 30px);
+               
+            padding-left: 20px;
+        }
+    }
+}
+
+.formulario__background--estilo{
+    background-image: url("./MULTIMEDIA/IMG/CONTACTO/camcont.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+
+.formulario__estilos--uno{
+    background-color: $opacidad;
+
+    border: 1px solid $colorSecundario;
+
+    color: $colorSecundario;
+}
+
+.formulario__estilos--dos{
+    width: 300px;
+}
+
+
+/*FOOTER*/
+
+footer{
+    background-color: rgba(73, 72, 72, .17);
+
+    text-align: center;
+
+    padding: 20px;
+    margin-top: 100px;
+
+    img{
+        height: 60px;
+
+        margin: 0 30px;
+    }
+
+    a{
+        text-decoration: none;
+
+        color: $colorFuente;
+
+        &:hover{
+            color: $colorFuente;
+        }
+    }
+
+    .footer__boton--redes:hover{
+        animation: swing;
+        animation-duration: 1s;
+    }
+
+    .footer__boton--contacto{
+        font-size: 13px;
+
+        padding-top: 30px;
+    }
+}
